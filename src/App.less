@@ -3,9 +3,9 @@
 /* Header */
 
 .header {
-  background-color: #fff;
-  border-bottom: 1px solid #e5e5e5;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: @background;
+  border-bottom: 1px solid @background;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   height: 50px;
   position: fixed;
   top: 0;
@@ -27,15 +27,174 @@
   &__logo-icon {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #060638;
   }
 
   &__logo-text {
     font-size: 2.6rem;
     font-weight: 700;
-    color: #060638;
+    color: white;
   }
 };
+
+/* Main */
+/* Todo Input */
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 0 0 0;
+    height: auto;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    padding: 0 30px;
+    margin-bottom: 20px;
+  }
+
+  &__input-text {
+    width: 100%;
+    height: 100%;
+    border: transparent;
+    outline: none;
+    border-radius: 12px;
+    font-size: 1.6rem;
+    padding: 5px 10px;
+    font-weight: 700;
+    color: @text-primary;
+
+    &::placeholder {
+      color: @text-secondary;
+    }
+
+    &:focus {
+      border: 1px solid #04a278;
+      animation: scale 0.2s ease-in-out;
+      animation-fill-mode: forwards;
+      margin-right: 20px;
+    }
+
+    @keyframes scale {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__input-btn {
+    background: #04a278;
+    border: 1px solid #04a278;
+    border-radius: 12px;
+    width: 100px;
+    height: 40px;
+    color: #0df167;
+    margin-left: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background: #0df167;
+      color: #04a278;
+      margin-left: 20px;
+      border: 1px solid #0df167;
+      animation: scale 0.2s ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes scale {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &__input-image {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__input-image-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: aqua;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin: 30px 0 0 0;
+    color: aqua;
+  }
+
+  &__item {
+    background: rgb(4, 46, 72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    width: 500px;
+    height: auto;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+  }
+
+  &__item-text-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__item-title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: aqua;
+    margin-bottom: 10px;
+  }
+
+  &__item-description {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: aqua;
+    margin-bottom: 10px;
+  }
+
+  &__item-btn {
+    margin: 10px;
+  }
+}
+
+.delete, .complete, .edit {
+  cursor: pointer;
+  &:hover {
+    color: #0df167;
+    animation: scale 0.2s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+}
 
 
 

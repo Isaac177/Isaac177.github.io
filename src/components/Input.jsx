@@ -1,5 +1,5 @@
 import React from 'react';
-import {BsPlusLg} from "react-icons/bs";
+
 
 
 /**
@@ -18,12 +18,26 @@ const Input = (props) => {
         <form onSubmit={handleSubmit}>
             <div className="todo__input">
                 <input
-                type="text"
-                placeholder="Enter a task"
-                value={value}
-                onChange={onChange}
+                    className="todo__input-text"
+                    type="text"
+                    placeholder="Enter a task"
+                    value={value}
+                    onChange={onChange}
                 />
-                <BsPlusLg onClick={onClick} className="todo__input-btn"/>
+                <button type="submit" onClick={onClick} className='todo__input-btn'>
+                    Add
+                </button>
+            </div>
+            <div className="todo__input-image">
+                <label htmlFor="image" className="todo__input-image-label">
+                    <input
+                        type="file"
+                        id="image"
+                        accept="image/*"
+                        onChange={onChange}
+                    />
+                    <span className="todo__input-image-text">Add image</span>
+                </label>
             </div>
         </form>
     );
