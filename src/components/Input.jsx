@@ -13,9 +13,9 @@ import React from 'react';
  */
 
 const Input = (props) => {
-    const {handleSubmit, value, onChange, onClick} = props;
+    const {createTodo, value, onChange, onClick, onImageChange} = props;
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={createTodo}>
             <div className="todo__input">
                 <input
                     className="todo__input-text"
@@ -34,7 +34,7 @@ const Input = (props) => {
                         type="file"
                         id="image"
                         accept="image/*"
-                        onChange={onChange}
+                        onChange={onImageChange}
                     />
                     <span className="todo__input-image-text">Add image</span>
                 </label>
