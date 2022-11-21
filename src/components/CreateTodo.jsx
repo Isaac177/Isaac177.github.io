@@ -1,23 +1,22 @@
 import React from 'react';
 
 
-
-
 const CreateTodo = (props) => {
-    const {handleCreate, titleChange, desChange, imgChange, title, description, image} = props;
+    const {handleCreate, onSubmit, createTitle, titleValue, descriptionValue, titleChange, desChange, imgChange} = props;
+
     return (
         <article className="create-todo">
             <div className='create-todo__title'>
-                <h1 className='create-todo__title-text'>Create Todo</h1>
+                <h1 className='create-todo__title-text'>{createTitle}</h1>
             </div>
             <div className="create-todo__form">
-                <form className="create-todo__form-content" onSubmit={handleCreate}>
+                <form className="create-todo__form-content" onSubmit={onSubmit}>
                     <div className="create-todo__form-input">
                         <label htmlFor="title" className="create-todo__form-label">Title</label>
                         <input
                             type="text"
                             id="title"
-                            value={title}
+                            value={titleValue}
                             onChange={titleChange}
                             className="create-todo__form-input-text"
                             placeholder="Enter a title"
@@ -29,7 +28,7 @@ const CreateTodo = (props) => {
                         <textarea
                             id="description"
                             onChange={desChange}
-                            value={description}
+                            value={descriptionValue}
                             className="create-todo__form-input-text"
                             placeholder="Enter a description"
                         />
@@ -40,7 +39,6 @@ const CreateTodo = (props) => {
                         <input
                             type="file"
                             id="image"
-                            value={image}
                             onChange={imgChange}
                             accept="image/*"
                             className="create-todo__form-input-text"
@@ -48,7 +46,7 @@ const CreateTodo = (props) => {
                     </div>
                 </form>
             </div>
-            <button className="create-todo__btn" onClick={handleCreate}>Create Todo</button>
+            <button className="create-todo__btn" onClick={handleCreate}>{createTitle}</button>
         </article>
     );
 };

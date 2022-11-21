@@ -2,20 +2,29 @@ import React from 'react';
 import {FaEdit} from "react-icons/fa";
 import {GiCheckMark} from "react-icons/gi";
 import {VscTrash} from "react-icons/vsc";
+import dayjs from 'dayjs';
 
 
 
 const SingleTodo = (props) => {
-    const {todo, handleDelete, handleEdit, handleComplete} = props;
+    const {todo, handleDelete, onClick, handleComplete} = props;
+
+
     return (
         <div className="todo__item" key={todo.id}>
             <div className="todo__item-text">
                 <div className="todo__item-text-title">
-                    <h2 className="todo__item-title">{todo.title}</h2>
+                    <h2
+                        className={`todo__item-title 
+                        ${todo.completed ? 
+                            'todo__item-title--completed' 
+                            : ''}`}>
+                        {todo.title}
+                    </h2>
                     <div className="todo__item-btns">
                         <FaEdit
                             className="todo__item-btn edit"
-                            onClick={() => handleEdit(todo.id)}
+                            onClick={onClick}
                             size={20}
                         />
                         <GiCheckMark
@@ -37,6 +46,11 @@ const SingleTodo = (props) => {
                          className="todo__item-img"
                     />
                     <p className="todo__item-description">{todo.description}</p>
+                </div>
+                <div className="todo__item-text-date">
+                    <p className="todo__item-date">{
+                        `Created the ${dayjs(todo.date).format('DD/MM/YYYY')} at ${dayjs(todo.date).format('HH:mm')}`
+                    }</p>
                 </div>
             </div>
         </div>

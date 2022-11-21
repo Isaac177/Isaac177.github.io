@@ -1,20 +1,20 @@
+
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore } from "@firebase/firestore";
 import {getStorage} from "firebase/storage";
 
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-
 const firebaseConfig = {
-    apiKey: "AIzaSyAiS7rgByI1iLFsEYjIaSBuf25eQXNUuo0",
-    authDomain: "todo-firebase-9fa8c.firebaseapp.com",
-    projectId: "todo-firebase-9fa8c",
-    storageBucket: "todo-firebase-9fa8c.appspot.com",
-    messagingSenderId: "850447057206",
-    appId: "1:850447057206:web:290e07393ad0e5b0247397"
+    apiKey: "AIzaSyC-G6zA_hpn7spPiQIFR6YRYD3FlYvG2KQ",
+    authDomain: "todo-firebase-a2f19.firebaseapp.com",
+    projectId: "todo-firebase-a2f19",
+    storageBucket: "todo-firebase-a2f19.appspot.com",
+    messagingSenderId: "880949362859",
+    appId: "1:880949362859:web:e30a9b886c33939db877ee"
 };
 
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
+
+
