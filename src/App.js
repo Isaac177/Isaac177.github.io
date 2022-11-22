@@ -16,6 +16,37 @@ import {getFirestore} from "@firebase/firestore";
 import Footer from "./components/Footer";
 
 
+/**
+ * @param {string} title - Заголовок задачи
+ * @param {string} description - Описание задачи
+ * @param {string} image - Картинка задачи
+ * @param {boolean} completed - Статус задачи
+ * @param {number} createdAt - Дата создания задачи
+ * @param {number} id - Уникальный идентификатор задачи
+ * @param {function} handleDelete - Функция удаления задачи
+ * @param {function} handleEditTodoClick - Функция редактирования задачи
+ * @param {function} handleComplete - Функция завершения задачи
+ * @param {function} handleEdit - Функция сохранения изменений задачи
+ * @param {boolean} edit - Статус редактирования задачи
+ * @param {string} editTitle - Заголовок редактируемой задачи
+ * @param {string} editDescription - Описание редактируемой задачи
+ * @param {string} editImage - Картинка редактируемой задачи
+ * @param {function} setEditTitle - Функция изменения заголовка редактируемой задачи
+ * @param {function} setEditDescription - Функция изменения описания редактируемой задачи
+ * @param {function} setEditImage - Функция изменения картинки редактируемой задачи
+ * @param {function} createTodo - Функция создания задачи
+ * @param {function} setTitle - Функция изменения заголовка задачи
+ * @param {function} setDescription - Функция изменения описания задачи
+ * @param {function} setImage - Функция изменения картинки задачи
+ * @param {function} setTodos - Функция изменения списка задач
+ * @param {function} handleComplete - Функция завершения задачи
+ * @param {function} handleEdit - Функция сохранения изменений задачи
+ * @param {function} handleEditTodoClick - Функция редактирования задачи
+ * @param {function} handleDelete - Функция удаления задачи
+ * @returns {JSX.Element} - Возвращает разметку страницы
+ * @constructor
+ */
+
 
 const App = () => {
     const [title, setTitle] = React.useState('');
@@ -62,7 +93,7 @@ const App = () => {
                 title: title,
                 description: description,
                 completed: false,
-                createdAt: new Date(),
+                createdAt: Date.now(),
                 image : await getDownloadURL(storageRef),
             });
     setTitle('');

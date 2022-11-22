@@ -2,6 +2,17 @@ import React from 'react';
 import {MdClose} from "react-icons/md";
 
 
+/**
+ * @param {object} props - объект с параметрами
+ * @param {string} props.title - заголовок
+ * @param {string} props.description - описание
+ * @param {string} props.image - ссылка на изображение
+ * @param {string} props.date - дата создания
+ * @param {function} props.closeShowTodo - функция закрытия модального окна
+ * @returns {JSX.Element} - возвращает JSX элемент
+ * @constructor
+ */
+
 const CreateTodo = (props) => {
     const {handleCreate, type, onSubmit, closeEdit, createTitle, titleValue, descriptionValue, titleChange, desChange, imgChange} = props;
 

@@ -3,6 +3,10 @@ import {FcTodoList} from "react-icons/fc";
 import '../App.less';
 
 
+/**
+ * @returns {JSX.Element} - возвращает JSX элемент
+ * @constructor
+ */
 const Header = () => {
     return (
         <header className="header">

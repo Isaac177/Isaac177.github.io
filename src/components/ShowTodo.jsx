@@ -2,6 +2,14 @@ import React from 'react';
 import dayjs from "dayjs";
 
 
+/**
+ * @param {object} props - объект с параметрами
+ * @param {object} props.todo - объект с данными
+ * @param {function} props.closeShowTodo - функция закрытия модального окна
+ * @returns {JSX.Element} - возвращает JSX элемент
+ * @constructor
+ */
+
 
 const ShowTodo = (props) => {
  const {todo, closeShowTodo} = props;

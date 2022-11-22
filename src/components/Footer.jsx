@@ -3,6 +3,10 @@ import dayjs from "dayjs";
 
 
 
+/**
+ * @returns {JSX.Element} - возвращает JSX элемент
+ */
+
 const Footer = () => {
     return (
         <footer className="footer">

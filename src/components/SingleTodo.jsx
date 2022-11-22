@@ -6,7 +6,15 @@ import dayjs from 'dayjs';
 import ShowTodo from "./ShowTodo";
 
 
-
+/**
+ * @description Компонент SingleTodo
+ * @param {object} props - пропсы
+ * @param {object} props.todo - объект todo
+ * @param {function} props.handleDelete - функция удаления todo
+ * @param {function} props.onClick - функция редактирования todo
+ * @param {function} props.handleComplete - функция завершения todo
+ * @returns {JSX.Element} - возвращает JSX элемент
+ */
 
 
 const SingleTodo = (props) => {
