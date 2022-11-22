@@ -3,6 +3,57 @@
 @text-primary: #060638;
 @text-secondary: #8c8c8c;
 @background: #070713;
+@background-secondary: rgb(4, 46, 72);
+
+/* Create Mixins */
+
+.flex-row() {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-column() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup() {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  transform: translateY(-100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.btn() {
+  background: #04a278;
+  border: 1px solid #04a278;
+  border-radius: 6px;
+  width: 100px;
+  height: 40px;
+  color: #0df167;
+  margin-left: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background: #0df167;
+    color: #04a278;
+    margin-left: 20px;
+    border: 1px solid #0df167;
+    animation: scale 0.2s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+}
+
+/* Create Global Styles */
 
 *{
   margin: 0;

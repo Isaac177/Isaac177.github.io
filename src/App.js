@@ -7,7 +7,7 @@ import {
     addDoc,
     doc,
     updateDoc,
-    deleteDoc, getDocs,
+    deleteDoc, getDocs, serverTimestamp
 } from "firebase/firestore";
 import {ref, uploadBytesResumable, getDownloadURL  } from "firebase/storage";
 import SingleTodo from "./components/SingleTodo";
@@ -93,7 +93,7 @@ const App = () => {
                 title: title,
                 description: description,
                 completed: false,
-                createdAt: Date.now(),
+                createdAt: serverTimestamp(),
                 image : await getDownloadURL(storageRef),
             });
     setTitle('');
@@ -121,16 +121,6 @@ const App = () => {
         await deleteDoc(todoDoc);
     };
     const handleEdit = async (id ) => {
-        setEdit(false);
-    }
-
-    const handleEditTodoClick = async (todo, id) => {
-        setEdit(true);
-        setEditTitle(todo.title);
-        setEditDescription(todo.description);
-        setEditImage(todo.image);
-        console.log(todo.id)
-
         const db = getFirestore();
         const todoDoc = doc(collection(db, "todos"), id);
         const newFields = {
@@ -139,6 +129,14 @@ const App = () => {
             image: editImage
         }
         await updateDoc(todoDoc, newFields);
+        setEdit(false);
+    }
+
+    const handleEditTodoClick = async (todo) => {
+        setEdit(!edit);
+        setEditTitle(todo.title);
+        setEditDescription(todo.description);
+        setEditImage(todo.image);
     }
 
     const handleComplete = async (id) => {
@@ -170,12 +168,11 @@ const App = () => {
                             key={index}
                             handleComplete={handleComplete}
                             handleDelete={handleDelete}
-                            handleEdit={handleEdit}
                             onClick={() => handleEditTodoClick(todo)}
                         />
                     ))}
                 </div>
-            </div>}
+            </div>
             {
                 edit ? (
                     <div className="todo__item-edit">
@@ -190,7 +187,7 @@ const App = () => {
                             imgChange={(e) => setEditImage(e.target.files[0])}
                             handleCreate={handleEdit }
                             onSubmit={handleEdit}
-                            closeEdit={() => setEdit(false)}
+                            closeEdit={() => setEdit(!edit)}
                         />
                     </div>) : null
             }
