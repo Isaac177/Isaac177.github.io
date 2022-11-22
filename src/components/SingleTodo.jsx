@@ -21,6 +21,14 @@ const SingleTodo = (props) => {
     const {todo, handleDelete, onClick, handleComplete} = props;
     const [showTodo, setShowTodo] = React.useState(false);
 
+    /*styles that display only one line of text*/
+    const titleStyle = {
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        display: '-webkit-box',
+        WebkitLineClamp: 1,
+        WebkitBoxOrient: 'vertical'
+    };
 
     return (
         <>
@@ -58,7 +66,8 @@ const SingleTodo = (props) => {
                          loading="lazy"
                          className="todo__item-img"
                     />
-                    <p className="todo__item-description">{todo.description}</p>
+                    <p className={titleStyle}>
+                    {todo.description}</p>
                 </div>
                 <div className="todo__item-text-date">
                     <p className="todo__item-date">{
