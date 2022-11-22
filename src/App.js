@@ -157,6 +157,7 @@ const App = () => {
                             imgChange={(e) => setEditImage(e.target.files[0])}
                             handleCreate={handleEdit }
                             onSubmit={handleEdit}
+                            closeEdit={() => setEdit(false)}
                         />
                     </div>) : null
             }
