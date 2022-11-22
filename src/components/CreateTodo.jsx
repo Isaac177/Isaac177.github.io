@@ -5,12 +5,6 @@ import {MdClose} from "react-icons/md";
 const CreateTodo = (props) => {
     const {handleCreate, type, onSubmit, closeEdit, createTitle, titleValue, descriptionValue, titleChange, desChange, imgChange} = props;
 
-    /*Icons by type*/
-
-    //set icon <MdClose /> to close the modal when type = 'edit'
-
-    //set icon <MdAdd /> to create a new todo when type = 'create'
-
     return (
         <article className="create-todo">
             <div className='create-todo__title'>
@@ -63,6 +57,7 @@ const CreateTodo = (props) => {
                         onClick={closeEdit}
                     /> : null
             }
+
         </article>
     );
 };

@@ -3,15 +3,20 @@ import {FaEdit} from "react-icons/fa";
 import {GiCheckMark} from "react-icons/gi";
 import {VscTrash} from "react-icons/vsc";
 import dayjs from 'dayjs';
+import ShowTodo from "./ShowTodo";
+
+
 
 
 
 const SingleTodo = (props) => {
     const {todo, handleDelete, onClick, handleComplete} = props;
+    const [showTodo, setShowTodo] = React.useState(false);
 
 
     return (
-        <div className="todo__item" key={todo.id}>
+        <>
+        <div className="todo__item" key={todo.id} >
             <div className="todo__item-text">
                 <div className="todo__item-text-title">
                     <h2
@@ -39,7 +44,7 @@ const SingleTodo = (props) => {
                         />
                     </div>
                 </div>
-                <div className="todo__item-text-description">
+                <div className="todo__item-text-description" onClick={() => setShowTodo(!showTodo)}>
                     <img src={todo.image}
                          alt="todo"
                          loading="lazy"
@@ -54,6 +59,13 @@ const SingleTodo = (props) => {
                 </div>
             </div>
         </div>
+            {showTodo &&
+                <ShowTodo
+                    todo={todo}
+                    closeShowTodo={() => setShowTodo(!showTodo)}
+                />
+            }
+            </>
     );
 };
 

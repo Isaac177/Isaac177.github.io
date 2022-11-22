@@ -13,6 +13,7 @@ import {ref, uploadBytesResumable, getDownloadURL  } from "firebase/storage";
 import SingleTodo from "./components/SingleTodo";
 import CreateTodo from "./components/CreateTodo";
 import {getFirestore} from "@firebase/firestore";
+import Footer from "./components/Footer";
 
 
 
@@ -25,6 +26,7 @@ const App = () => {
     const [editDescription, setEditDescription] = React.useState('');
     const [editImage, setEditImage] = React.useState(null);
     const [edit, setEdit] = React.useState(false)
+
 
     const todoRef = collection(db, 'todos');
 
@@ -161,6 +163,7 @@ const App = () => {
                         />
                     </div>) : null
             }
+            <Footer />
         </div>
     );
 }
